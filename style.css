@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --indigo-900: #312e81;
+  --orange-500: #f97316;
+  --neutral-700: #404040;
+  --neutral-100: #f5f5f5;
+  --amber-300: #fcd34d;
+}
+
 body {
   padding: 3rem 0 0 0;
 }
@@ -25,21 +33,61 @@ p {
   font-family: 'Lora', serif;
 }
 
+.loading-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: var(--amber-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.loading-wrapper p {
+  animation: blink 2s ease-in both infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.62;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #app {
-  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .user-wrapper {
-  border: 1px black solid;
+  border: 1px #a3a3a3 solid;
   padding: 1rem;
   margin-bottom: 1.65rem;
+  border-radius: 20px;
+}
+
+.user-wrapper header {
+  padding-bottom: 1rem;
+  border-bottom: 3px var(--neutral-100) solid;
 }
 
 .user-wrapper header .title {
   font-size: 38px;
+  color: var(--indigo-900);
 }
+
 .user-wrapper header .company {
+  color: var(--neutral-700);
+  font-weight: bold;
 }
 
 .user-posts {
@@ -48,15 +96,16 @@ p {
 
 .user-posts .title {
   font-size: 25px;
-  margin-bottom: 12px;
-}
-
-.user-posts-container {
+  margin-bottom: 2px;
+  color: var(--orange-500);
 }
 
 .post {
-  padding: 0.7rem;
+  padding: 0.7rem 0.7rem 0.7rem 0.25rem;
   margin-bottom: 8px;
-  border-left: 2px black solid;
-  border-bottom: 1px black solid;
+  border-bottom: 1px #a3a3a3 dotted;
+}
+
+.post:last-child {
+  border-bottom: unset;
 }

@@ -42,8 +42,14 @@ function createUserBlock(user) {
   postsDiv.appendChild(postContainerDiv)
   userDiv.appendChild(postsDiv)
 
-  // Add in the parent
-  app.appendChild(userDiv)
+  // Delay
+  setTimeout(() => {
+    const loading = document.querySelector('.loading-wrapper')
+    loading.style.display = 'none'
+
+    // Add in the parent
+    app.appendChild(userDiv)
+  }, 3000)
 }
 
 // Main code
