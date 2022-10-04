@@ -23,11 +23,8 @@ export default class Letter {
     return this.handleRequest('GET', '/posts')
   }
 
-  async get() {
-    const users = await this.getUsers()
-    const posts = await this.getPosts()
-
-    const responseFormated = users.map((user) => {
+  formatResponse(users, posts) {
+    return users.map((user) => {
       return {
         ...user,
         address: `${user?.address?.street}, ${user?.address?.suite} - ${user?.address?.zipcode} ${user?.address?.city}`,
@@ -43,7 +40,18 @@ export default class Letter {
           }),
       }
     })
+  }
 
-    return responseFormated
+  async get() {
+    let users, posts
+
+    try {
+      users = await this.getUsers()
+      posts = await this.getPosts()
+
+      return this.formatResponse(users, posts)
+    } catch (error) {
+      throw new Error('Something happened wrong')
+    }
   }
 }

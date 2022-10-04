@@ -91,3 +91,19 @@ describe('Letter class tests', () => {
     expect(responseGet).toMatchObject(mockData)
   })
 })
+
+describe('API tests', () => {
+  let letter
+
+  beforeEach(() => {
+    letter = new Letter()
+    jest.spyOn(letter, 'get')
+    jest.spyOn(letter, 'getUsers').mockImplementation(() => {
+      throw new Error('Something happened wrong')
+    })
+  })
+
+  it('should return throw Error', async () => {
+    await expect(letter.get()).rejects.toThrowError('Something happened wrong')
+  })
+})
