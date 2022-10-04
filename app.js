@@ -54,8 +54,17 @@ function createUserBlock(user) {
 
 // Main code
 const letter = new Letter()
-const responseJson = await letter.get()
 
-responseJson.forEach((user) => {
-  createUserBlock(user)
-})
+try {
+  const responseJson = await letter.get()
+
+  // Looping each user and create the elements of the UI
+  responseJson.forEach((user) => {
+    createUserBlock(user)
+  })
+} catch (error) {
+  const loading = document.querySelector('.loading-wrapper')
+  const loadingTitle = document.querySelector('.loading-wrapper p')
+  loading.classList.add('error')
+  loadingTitle.textContent = error
+}
