@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "start": "browser-sync start --server"
+    "start": "browser-sync start --server --files '*'"
   },
   "keywords": [],
   "author": "",

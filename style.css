@@ -1,0 +1,62 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3rem 0 0 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+p {
+  margin: 0;
+  font-family: 'Lora', serif;
+}
+
+#app {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.user-wrapper {
+  border: 1px black solid;
+  padding: 1rem;
+  margin-bottom: 1.65rem;
+}
+
+.user-wrapper header .title {
+  font-size: 38px;
+}
+.user-wrapper header .company {
+}
+
+.user-posts {
+  margin-top: 1rem;
+}
+
+.user-posts .title {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.user-posts-container {
+}
+
+.post {
+  padding: 0.7rem;
+  margin-bottom: 8px;
+  border-left: 2px black solid;
+  border-bottom: 1px black solid;
+}
